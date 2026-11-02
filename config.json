@@ -1,0 +1,41 @@
+{
+  "service_name": "face-recognition",
+  "concurrency_target": 35,
+  "traffic_update_interval_sec": 5,
+  "cluster_resources": {
+    "cpu_cores": 22,
+    "gpu_cores": 128,
+    "memory_gb": 32,
+    "network_mbps": 100
+  },
+  "equivalent_implementations": [
+    {
+      "id": 0,
+      "name": "edge-cpu-based",
+      "resource_costs": {"cpu": 1.0, "gpu": 0.0, "memory": 0.5, "network": 0.1},
+      "base_latency_ms": 120.0,
+      "max_throughput_per_replica": 15
+    },
+    {
+      "id": 1,
+      "name": "edge-gpu-based",
+      "resource_costs": {"cpu": 0.2, "gpu": 16.0, "memory": 0.8, "network": 0.1},
+      "base_latency_ms": 45.0,
+      "max_throughput_per_replica": 45
+    },
+    {
+      "id": 2,
+      "name": "local-offload",
+      "resource_costs": {"cpu": 0.4, "gpu": 0.0, "memory": 0.2, "network": 2.5},
+      "base_latency_ms": 85.0,
+      "max_throughput_per_replica": 25
+    },
+    {
+      "id": 3,
+      "name": "cloud-offload",
+      "resource_costs": {"cpu": 0.05, "gpu": 0.0, "memory": 0.1, "network": 12.0},
+      "base_latency_ms": 210.0,
+      "max_throughput_per_replica": 100
+    }
+  ]
+}
